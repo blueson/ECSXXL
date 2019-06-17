@@ -43,7 +43,7 @@ public class CreaterService
         entity.isMovable = true;
         entity.AddItemIndex(index);
         entity.AddJudgeSameState(JudgeState.NONE);
-        int randomIndex = Random.Range(0, 6);
+        int randomIndex = Random.Range(0, 5);
         entity.AddLoadPrefab(ConstData.itemPrefab + randomIndex);
         return entity;
     }
@@ -62,4 +62,32 @@ public class CreaterService
         entity.AddLoadPrefab(ConstData.blockPrefab);
         return entity;
     }
+
+    public FightEntity CreateFightData()
+    {
+        var entity = _contexts.fight.CreateEntity();
+        entity.AddFightData(5, 5);
+        return entity;
+    }
+
+    public FightEntity CreateHero()
+    {
+        var entity = _contexts.fight.CreateEntity();
+        entity.AddFightRoleType(RoleType.HERO);
+        entity.AddLoadPrefabPaht("Prefabs/Role/Role2");
+        return entity;
+    }
+
+    public FightEntity CreateEnemy()
+    {
+        var entity = _contexts.fight.CreateEntity();
+        entity.AddFightRoleType(RoleType.ENMEY);
+        entity.AddLoadPrefabPaht("Prefabs/Role/Role1");
+        return entity;
+    }
+
+    //public GameEntity CreateHero()
+    //{
+    //    var entity = _contexts.game
+    //}
 }

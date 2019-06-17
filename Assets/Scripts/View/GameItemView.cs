@@ -24,13 +24,14 @@ public class GameItemView : View,IItemIndexListener,ISpecialListener
     {
         base.OnGameDestroy(entity);
         var time = 0.5f;
-        transform.DOScale(3, time);
-        transform.GetComponent<SpriteRenderer>()
-            .DOColor(Color.clear, time).OnComplete(() => Destroy(gameObject));
+        transform.DOScale(0.5f, time)
+            .OnComplete(() => Destroy(gameObject));
     }
 
     public void OnSpecial(GameEntity entity, string specialName)
     {
-        transform.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(specialName);
+        Debug.Log(specialName);
+        var animator = transform.GetComponent<Animator>();
+        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(specialName);
     }
 }

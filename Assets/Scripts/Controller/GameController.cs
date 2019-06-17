@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour
     {
         Contexts contexts = Contexts.sharedInstance;
         _systems = new GameFeature(contexts)
+            .Add(new FightFeature(contexts))
+            .Add(new FightEventSystems(contexts))
             .Add(new GameEventSystems(contexts))
             .Add(new InputFeature(contexts));
 

@@ -14,25 +14,36 @@ public class JudgeFormationSystem : ReactiveSystem<GameEntity>
     {
         foreach(var entity in entities)
         {
-            if(JudgeSameColor(entity.judgeSameColor))
-            {
-                entity.ReplaceJudgeSameState(JudgeState.JUDGE_SAME_COLOR);
-            }
-            else if(JudgeHorColor(entity.judgeSameColor))
-            {
-                entity.ReplaceJudgeSameState(JudgeState.JUDGE_HOR);
-            }
-            else if (JudgeVecColor(entity.judgeSameColor))
-            {
-                entity.ReplaceJudgeSameState(JudgeState.JUDGE_VEC);
-            }
-            else if (JudgeExplode(entity.judgeSameColor))
-            {
-                entity.ReplaceJudgeSameState(JudgeState.JUDGE_EXPLODE);
-            }
+            //if (entity.judgeSameState.state == JudgeState.NONE)
+            //{
+            //    if (JudgeSameColor(entity.judgeSameColor))
+            //    {
+            //        entity.ReplaceJudgeSameState(JudgeState.JUDGE_SAME_COLOR);
+            //    }
+            //    else if (JudgeHorColor(entity.judgeSameColor))
+            //    {
+            //        entity.ReplaceJudgeSameState(JudgeState.JUDGE_HOR);
+            //    }
+            //    else if (JudgeVecColor(entity.judgeSameColor))
+            //    {
+            //        entity.ReplaceJudgeSameState(JudgeState.JUDGE_VEC);
+            //    }
+            //    else if (JudgeExplode(entity.judgeSameColor))
+            //    {
+            //        entity.ReplaceJudgeSameState(JudgeState.JUDGE_EXPLODE);
+            //    }
+            //    else
+            //    {
+            //        entity.isJudgeFormation = false;
+            //    }
+            //}
+            //else
+            //{
+            entity.isJudgeFormation = false;
+            //}
 
             entity.ReplaceEliminate(true);
-            entity.isJudgeFormation = false;
+            
         }
     }
 

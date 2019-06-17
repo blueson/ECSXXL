@@ -15,7 +15,7 @@ public class EliminateSystem : ReactiveSystem<GameEntity>
 
         foreach(var entity in entities)
         {
-            if(entity.judgeSameState.state == JudgeState.NONE) 
+            if(!entity.isJudgeFormation) 
             {
                 eliminaList.Add(entity);
             }

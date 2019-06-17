@@ -28,3 +28,9 @@ public enum JudgeState
     JUDGE_VEC,
     JUDGE_EXPLODE
 }
+
+public enum RoleType
+{
+    HERO,
+    ENMEY
+}

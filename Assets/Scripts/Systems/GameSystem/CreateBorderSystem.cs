@@ -23,14 +23,14 @@ public class CreateBorderSystem : ReactiveSystem<GameEntity>,IInitializeSystem
             {
                 index.x = x;
                 index.y = y;
-                if (RandomCreateBlocker())
-                {
-                    CreaterService.Instance.CreateBlocker(index);
-                }
-                else
-                {
+                //if (RandomCreateBlocker())
+                //{
+                //    CreaterService.Instance.CreateBlocker(index);
+                //}
+                //else
+                //{
                     CreaterService.Instance.CreateBall(index);
-                }
+                //}
             }
         }
     }
