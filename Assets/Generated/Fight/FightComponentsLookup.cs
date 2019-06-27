@@ -12,20 +12,26 @@ public static class FightComponentsLookup {
     public const int FightData = 1;
     public const int FightRoleType = 2;
     public const int LoadPrefabPaht = 3;
+    public const int RolePos = 4;
+    public const int RolePosListener = 5;
 
-    public const int TotalComponents = 4;
+    public const int TotalComponents = 6;
 
     public static readonly string[] componentNames = {
         "AnyLoadPrefabPahtListener",
         "FightData",
         "FightRoleType",
-        "LoadPrefabPaht"
+        "LoadPrefabPaht",
+        "RolePos",
+        "RolePosListener"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(AnyLoadPrefabPahtListenerComponent),
         typeof(FightData),
         typeof(FightRoleType),
-        typeof(LoadPrefabPaht)
+        typeof(LoadPrefabPaht),
+        typeof(RolePos),
+        typeof(RolePosListenerComponent)
     };
 }

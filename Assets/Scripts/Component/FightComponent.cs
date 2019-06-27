@@ -29,3 +29,10 @@ public class LoadPrefabPaht : IComponent
 {
     public string path;
 }
+
+[Fight,Event(EventTarget.Self,
+    Entitas.CodeGeneration.Attributes.EventType.Added,1)]
+public class RolePos : IComponent
+{
+    public Vector2 pos;
+}

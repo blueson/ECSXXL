@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.HeroEditor.Common.CharacterScripts;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,9 +22,11 @@ public class LoadRolePrefabService : IAnyLoadPrefabPahtListener
     {
         _heroParent = new GameObject("heroParent").transform;
         _heroParent.parent = gameController;
+        _heroParent.position = new Vector2(-4.5f, 0);
 
         _enemyParent = new GameObject("enemyParent").transform;
         _enemyParent.parent = gameController;
+        _enemyParent.position = new Vector2(4.5f, 0);
     }
 
     public void OnAnyLoadPrefabPaht(FightEntity entity, string path)
@@ -39,7 +42,10 @@ public class LoadRolePrefabService : IAnyLoadPrefabPahtListener
         }
 
         GameObject go = Resources.Load<GameObject>(path);
-        var view = GameObject.Instantiate(go,parent).GetComponent<FightView>();
+        var fightGo = GameObject.Instantiate(go, parent);
+        fightGo.GetComponent<CharacterFlip>().enabled = false;
+        fightGo.GetComponent<WeaponControls>().enabled = false;
+        var view = fightGo.GetComponent<FightView>();
         view.Link(entity, _contexts);
     }
 }

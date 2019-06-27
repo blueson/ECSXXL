@@ -16,12 +16,12 @@ public class FightDataSystem : ReactiveSystem<FightEntity>,IInitializeSystem
 
         for(int i =0;i<fightData.fightData.heroCount;i++)
         {
-            CreaterService.Instance.CreateHero();
+            CreaterService.Instance.CreateHero(i);
         }
 
         for(int i=0;i<fightData.fightData.enemyCount;i++)
         {
-            CreaterService.Instance.CreateEnemy();
+            CreaterService.Instance.CreateEnemy(i);
         }
     }
 

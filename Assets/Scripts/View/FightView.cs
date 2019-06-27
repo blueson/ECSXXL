@@ -4,7 +4,7 @@ using Entitas;
 using Entitas.Unity;
 using UnityEngine;
 
-public class FightView : MonoBehaviour,IView
+public class FightView : MonoBehaviour,IView,IRolePosListener
 {
     private FightEntity _fightEntity;
     public void Link(IEntity entity, Contexts contexts)
@@ -19,7 +19,13 @@ public class FightView : MonoBehaviour,IView
             return;
         }
 
+        _fightEntity.AddRolePosListener(this);
         gameObject.Link(entity);
+    }
+
+    public void OnRolePos(FightEntity entity, Vector2 pos)
+    {
+        transform.localPosition = pos;
     }
 
     private void OnDestroy()

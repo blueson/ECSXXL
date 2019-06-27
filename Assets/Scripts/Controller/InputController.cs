@@ -25,7 +25,7 @@ public class InputController : MonoBehaviour
             var hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 100);
             if (hit.collider != null)
             {
-                _clickPos = hit.transform.position;
+                _clickPos = hit.transform.localPosition;
                 _inputContext.ReplaceGameClick((int)_clickPos.x, (int)_clickPos.y);
             }
             _timer = 0;

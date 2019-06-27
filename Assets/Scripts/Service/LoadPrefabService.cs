@@ -23,6 +23,7 @@ public class LoadPrefabService : IAnyLoadPrefabListener
         _settleParent.SetParent(parent);
         _moveParent = new GameObject("move").transform;
         _moveParent.SetParent(parent);
+        _moveParent.localPosition = new Vector2(-3.5f, -7);
     }
 
     public void OnAnyLoadPrefab(GameEntity entity, string path)

@@ -70,24 +70,21 @@ public class CreaterService
         return entity;
     }
 
-    public FightEntity CreateHero()
+    public FightEntity CreateHero(int index)
     {
         var entity = _contexts.fight.CreateEntity();
         entity.AddFightRoleType(RoleType.HERO);
         entity.AddLoadPrefabPaht("Prefabs/Role/Role2");
+        entity.AddRolePos(new Vector2(-index / 3, index % 3 + 2));
         return entity;
     }
 
-    public FightEntity CreateEnemy()
+    public FightEntity CreateEnemy(int index)
     {
         var entity = _contexts.fight.CreateEntity();
         entity.AddFightRoleType(RoleType.ENMEY);
         entity.AddLoadPrefabPaht("Prefabs/Role/Role1");
+        entity.AddRolePos(new Vector2(index / 3, index % 3 + 2));
         return entity;
     }
-
-    //public GameEntity CreateHero()
-    //{
-    //    var entity = _contexts.game
-    //}
 }
