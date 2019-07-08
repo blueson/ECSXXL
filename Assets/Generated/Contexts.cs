@@ -61,6 +61,7 @@ public partial class Contexts : Entitas.IContexts {
 public partial class Contexts {
 
     public const string ItemIndex = "ItemIndex";
+    public const string RolePos = "RolePos";
 
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeEntityIndices() {
@@ -68,6 +69,11 @@ public partial class Contexts {
             ItemIndex,
             game.GetGroup(GameMatcher.ItemIndex),
             (e, c) => ((ItemIndexComponent)c).index));
+
+        fight.AddEntityIndex(new Entitas.EntityIndex<FightEntity, UnityEngine.Vector2>(
+            RolePos,
+            fight.GetGroup(FightMatcher.RolePos),
+            (e, c) => ((RolePos)c).pos));
     }
 }
 
@@ -75,6 +81,10 @@ public static class ContextsExtensions {
 
     public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithItemIndex(this GameContext context, UnityEngine.Vector2 index) {
         return ((Entitas.EntityIndex<GameEntity, UnityEngine.Vector2>)context.GetEntityIndex(Contexts.ItemIndex)).GetEntities(index);
+    }
+
+    public static System.Collections.Generic.HashSet<FightEntity> GetEntitiesWithRolePos(this FightContext context, UnityEngine.Vector2 pos) {
+        return ((Entitas.EntityIndex<FightEntity, UnityEngine.Vector2>)context.GetEntityIndex(Contexts.RolePos)).GetEntities(pos);
     }
 }
 //------------------------------------------------------------------------------

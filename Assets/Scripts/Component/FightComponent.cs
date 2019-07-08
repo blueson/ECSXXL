@@ -34,5 +34,25 @@ public class LoadPrefabPaht : IComponent
     Entitas.CodeGeneration.Attributes.EventType.Added,1)]
 public class RolePos : IComponent
 {
+    [EntityIndex]
     public Vector2 pos;
+}
+
+[Fight]
+public class SearchEnemy : IComponent
+{
+
+}
+
+[Fight]
+public class EnemyInfo : IComponent
+{
+    public FightEntity enemy;
+}
+
+[Fight,Event(EventTarget.Self,
+    Entitas.CodeGeneration.Attributes.EventType.Added,1)]
+public class MoveToTarget : IComponent
+{
+
 }

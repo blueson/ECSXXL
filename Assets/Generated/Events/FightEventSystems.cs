@@ -10,6 +10,7 @@ public sealed class FightEventSystems : Feature {
 
     public FightEventSystems(Contexts contexts) {
         Add(new AnyLoadPrefabPahtEventSystem(contexts)); // priority: 0
+        Add(new MoveToTargetEventSystem(contexts)); // priority: 1
         Add(new RolePosEventSystem(contexts)); // priority: 1
     }
 }

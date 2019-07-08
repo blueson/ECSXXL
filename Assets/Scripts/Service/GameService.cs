@@ -10,5 +10,6 @@ public class GameService
         LoadRolePrefabService.Instance.Init(contexts, gameController);
         CreaterService.Instance.init(contexts);
         GetNextEmptyService.Instance.Init(contexts);
+        GetNextEnemyService.Instance.Init(contexts);
     }
 }

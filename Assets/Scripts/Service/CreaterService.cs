@@ -76,6 +76,7 @@ public class CreaterService
         entity.AddFightRoleType(RoleType.HERO);
         entity.AddLoadPrefabPaht("Prefabs/Role/Role2");
         entity.AddRolePos(new Vector2(-index / 3, index % 3 + 2));
+        entity.isSearchEnemy = true;
         return entity;
     }
 
@@ -85,6 +86,7 @@ public class CreaterService
         entity.AddFightRoleType(RoleType.ENMEY);
         entity.AddLoadPrefabPaht("Prefabs/Role/Role1");
         entity.AddRolePos(new Vector2(index / 3, index % 3 + 2));
+        entity.isSearchEnemy = true;
         return entity;
     }
 }

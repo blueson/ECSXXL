@@ -48,4 +48,15 @@ public class LoadRolePrefabService : IAnyLoadPrefabPahtListener
         var view = fightGo.GetComponent<FightView>();
         view.Link(entity, _contexts);
     }
+
+    public Vector2 GetWorldPos(FightEntity entity)
+    {
+        var parent = _heroParent;
+        if(entity.fightRoleType.roleType == RoleType.ENMEY)
+        {
+            parent = _enemyParent;
+        }
+
+        return parent.TransformPoint(entity.rolePos.pos);
+    }
 }
